@@ -1,0 +1,391 @@
+<p>contact-profile works!</p>
+
+<div class="profile">
+
+  <div class="profile__main_box">
+
+    <ng-container *ngIf="mode==0">
+    <div class="profile__main_box__colorbox" [style.background-color]="contact.tags[0].colour"></div>
+    </ng-container>
+
+    <ng-container *ngIf="mode==1">
+<!--      <button href="" class="profile__main_box__colorboxbutton"></button>-->
+      <input (input)="upTagGetColour($event)" type="color" class="profile__main_box__colorboxbutton" value="{{contact.tags[0].colour}}"/>
+    </ng-container>
+
+    <ng-container *ngIf="mode==2">
+      <!--      <button href="" class="profile__main_box__colorboxbutton"></button>-->
+      <input (input)="onTagGetColour($event)" type="color" class="profile__main_box__colorboxbutton" value="#000000"/>
+    </ng-container>
+
+    <ng-container *ngIf="mode==0">
+    <div class="profile__main_box__input " >
+
+      <div class="profile__main_box__input__text">
+        {{contact.name}}
+      </div>
+
+      <div class="profile__main_box__input__text">
+      {{contact.surname}}
+      </div>
+
+    </div>
+    </ng-container>
+
+    <ng-container *ngIf="mode==1">
+      <div class="profile__main_box__input">
+
+        <input (input)="upNameInput($event)" type="text" class="profile__info_box__pointed__main_text_input" value="{{contact.name}}" placeholder="Your Name">
+        <input (input)="upSurnameInput($event)" type="text" class="profile__info_box__pointed__main_text_input"  value="{{contact.surname}}" placeholder="Your Surname">
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="mode==2">
+      <div class="profile__main_box__input">
+
+          <input (input)="onNameInput($event)" type="text" class="profile__info_box__pointed__main_text_input" placeholder="Your Name">
+          <input (input)="onSurnameInput($event)" type="text" class="profile__info_box__pointed__main_text_input" placeholder="Your Surname">
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div class="profile__info_box">
+
+
+
+    <ng-container *ngIf="mode==0">
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-city"></i>
+        </div>
+        <div class="profile__info_box__point__text_content">
+          {{contact.city}}
+        </div>
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="profile__info_box__point__text_content">
+          {{contact.adress}}
+        </div>
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="profile__info_box__point__text_content">
+          {{contact.job}}
+        </div>
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-building"></i>
+        </div>
+        <div class="profile__info_box__point__text_content">
+          {{contact.company}}
+        </div>
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-birthday-cake"></i>
+        </div>
+        <div class="profile__info_box__point__text_content">
+          {{contact.date_of_birth}}
+        </div>
+      </div>
+      <div class="profile__info_box__point" style="margin-top: 10px">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-globe"></i>
+        </div>
+        <div  style="display: flex; flex-direction: column;justify-content: center;align-items:center;">
+          <ng-container *ngFor="let item of contact.social_page_link ">
+            <div class="profile__info_box__point__text_content">
+              {{item.social_page_url}}
+            </div>
+          </ng-container>
+        </div>
+
+      </div>
+      <div class="profile__info_box__point" style="margin-top: 10px">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div style="display: flex; flex-direction: column;justify-content: center;align-items:center;">
+        <ng-container *ngFor="let item of contact.phone_number ">
+          <div class="profile__info_box__point__text_content">
+            {{item.phone}}
+          </div>
+        </ng-container>
+        </div>
+      </div>
+      <div class="profile__info_box__point" style="margin-top: 10px;margin-bottom: 10px">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div style="display: flex; flex-direction: column;justify-content: center;align-items:center;">
+        <ng-container *ngFor="let item of contact.email ">
+          <div class="profile__info_box__point__text_content">
+            {{item.email}}
+          </div>
+        </ng-container>
+        </div>
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-user-tag"></i>
+        </div>
+        <div class="profile__info_box__point__text_content">
+          {{contact.tags[0].label}}
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="mode==1">
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-city"></i>
+        </div>
+        <input (input)="upCityInput($event)" type="text" class="profile__info_box__pointed__text_input" value="{{contact.city}}" placeholder="Add your city">
+
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+
+        <input (input)="upAdressInput($event)" type="text" class="profile__info_box__pointed__text_input" value="{{contact.adress}}" placeholder="Add your address">
+
+
+
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <input (input)="upJobInput($event)" type="text" class="profile__info_box__pointed__text_input" value="{{contact.job}}" placeholder="Add your job">
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-building"></i>
+        </div>
+        <input (input)="upCompanyInput($event)" type="text" class="profile__info_box__pointed__text_input" value="{{contact.company}}" placeholder="Add your company">
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-birthday-cake"></i>
+        </div>
+
+        <input (input)="upBirthDayInput($event)" type="text" class="profile__info_box__pointed__text_input" value="{{contact.date_of_birth}}" placeholder="Add your date of birth XX.XX.XX">
+
+      </div>
+
+      <div class="profile__info_box__pointed"  style="margin-top: 10px">
+        <div class="profile__info_box__pointed__icon_contents">
+          <button (click)="addSocial_Click()" href="" class="profile__info_box__pointed__icon_contents__addbut"><i class="fas fa-plus"></i></button>
+          <i class="fas fa-globe"></i>
+        </div>
+        <div style="display: flex; flex-direction: column;justify-content: center;align-items:center;">
+          <ng-container *ngFor="let item of contact.social_page_link; index as i">
+            <div style="display: flex"  >
+              <button (click)="removeSocial_MainClick(i)" href=""  class="profile__info_box__pointed__icon_contents__removebut"><i class="fas fa-minus"></i></button>
+              <input type="text" class="profile__info_box__pointed__text_input" value="{{item.social_page_url}}" placeholder="Add your social-page link">
+            </div>
+          </ng-container>
+
+          <ng-container *ngFor="let item of socialInputs; index as i ">
+            <div style="display: flex"  >
+              <button (click)="removeSocial_Click(i)" href=""  class="profile__info_box__pointed__icon_contents__removebut"><i class="fas fa-minus"></i></button>
+              <input (input)="newInputSocial(i,$event)"  type="text" class="profile__info_box__pointed__text_input" value="" placeholder="Add your social-page link">
+            </div>
+          </ng-container>
+
+        </div>
+
+      </div>
+      <div class="profile__info_box__point" style="margin-top: 10px">
+        <div class="profile__info_box__pointed__icon_contents">
+          <button (click)="addPhone_Click()" href="" class="profile__info_box__pointed__icon_contents__addbut"><i class="fas fa-plus"></i></button>
+          <i class="fas fa-phone"></i>
+        </div>
+       <div style="display: flex;flex-direction: column;justify-content: center;align-items:center;">
+          <ng-container *ngFor="let item of contact.phone_number;index as i ">
+
+            <div style="display: flex">
+              <button (click)="removePhone_MainClick(i)" href=""  class="profile__info_box__pointed__icon_contents__removebut"><i class="fas fa-minus"></i></button>
+              <input type="text" class="profile__info_box__pointed__text_input" value="{{item.phone}}" placeholder="Add your number +XXX XX XXX XXXX">
+            </div>
+          </ng-container>
+         <ng-container *ngFor="let item of phoneInputs;index as i ">
+
+           <div style="display: flex">
+             <button (click)="removePhone_Click(i)" href=""  class="profile__info_box__pointed__icon_contents__removebut"><i class="fas fa-minus"></i></button>
+             <input (input)="newInputPhone(i,$event)" type="text" class="profile__info_box__pointed__text_input" value="{{item.phone}}" placeholder="Add your number +XXX XX XXX XXXX">
+           </div>
+         </ng-container>
+
+        </div>
+      </div>
+      <div class="profile__info_box__point"  style="margin-top: 10px;margin-bottom: 10px">
+        <div class="profile__info_box__pointed__icon_contents">
+          <button (click)="addEmail_Click()"  href="" class="profile__info_box__pointed__icon_contents__addbut"><i class="fas fa-plus"></i></button>
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div style="display: flex; flex-direction: column;justify-content: center;align-items:center;">
+          <ng-container *ngFor="let item of contact.email;index as i ">
+
+            <div style="display: flex">
+              <button (click)="removeEmail_MainClick(i)" href=""  class="profile__info_box__pointed__icon_contents__removebut"><i class="fas fa-minus"></i></button>
+              <input type="text" class="profile__info_box__pointed__text_input" value="{{item.email}}" placeholder="Add your email X.com">
+            </div>
+          </ng-container>
+          <ng-container *ngFor="let item of emailInputs;index as i ">
+
+            <div style="display: flex">
+              <button (click)="removeEmail_Click(i)" href=""  class="profile__info_box__pointed__icon_contents__removebut"><i class="fas fa-minus"></i></button>
+              <input (input)="newInputEmail(i,$event)" type="text" class="profile__info_box__pointed__text_input" value="{{item.email}}" placeholder="Add your number +XXX XX XXX XXXX">
+            </div>
+          </ng-container>
+
+        </div>
+      </div>
+
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-user-tag"></i>
+        </div>
+        <input type="text" class="profile__info_box__pointed__text_input" value="Family" placeholder="Choose tag or write new">
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="mode==2">
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-city"></i>
+        </div>
+
+        <input (input)="onCityInput($event)" type="text" value="" class="profile__info_box__pointed__text_input" placeholder="Add your city">
+
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+
+        <input (input)="onAdressInput($event)" type="text" class="profile__info_box__pointed__text_input" placeholder="Add your address">
+
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <input (input)="onJobInput($event)" type="text" class="profile__info_box__pointed__text_input" placeholder="Add your job">
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-building"></i>
+        </div>
+        <input (input)="onCompanyInput($event)"  type="text" class="profile__info_box__pointed__text_input" placeholder="Add your company">
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-birthday-cake"></i>
+        </div>
+
+        <input (input)="onBirthDayInput($event)" type="text" class="profile__info_box__pointed__text_input" placeholder="Add your date of birth XX.XX.XX">
+
+      </div>
+      <div class="profile__info_box__pointed">
+
+        <div class="profile__info_box__pointed__icon_contents" style="margin-top: 10px">
+          <button (click)="addSocial_Click()" href="" class="profile__info_box__pointed__icon_contents__addbut"><i class="fas fa-plus"></i></button>
+          <i class="fas fa-globe"></i>
+        </div>
+        <div style="display: flex; flex-direction: column;justify-content: center;align-items:center;">
+      <ng-container *ngFor="let item of socialInputs;index as i">
+        <div style="display: flex; justify-content: center;align-items:center">
+        <button (click)="removeSocial_Click(i)" href=""  class="profile__info_box__pointed__icon_contents__removebut"><i class="fas fa-minus"></i></button>
+        <input (input)="newInputSocial(i,$event)" type="text" class="profile__info_box__pointed__text_input" placeholder="Add your social-page link">
+        </div>
+      </ng-container>
+        </div>
+
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__pointed__icon_contents" style="margin-top: 10px">
+          <button (click)="addPhone_Click()" href="" class="profile__info_box__pointed__icon_contents__addbut"><i class="fas fa-plus"></i></button>
+          <i class="fas fa-phone"></i>
+        </div>
+        <div style="display: flex; flex-direction: column;justify-content: center;align-items:center;">
+        <ng-container *ngFor="let item of phoneInputs;index as i">
+          <div style="display: flex; justify-content: center;align-items:center">
+        <button (click)="removePhone_Click(i)" href=""  class="profile__info_box__pointed__icon_contents__removebut"><i class="fas fa-minus"></i></button>
+        <input (input)="newInputPhone(i,$event)" type="text" class="profile__info_box__pointed__text_input" placeholder="Add your number +XXX XX XXX XXXX">
+        </div>
+        </ng-container>
+          </div>
+      </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__pointed__icon_contents" style="margin-top: 10px;margin-bottom: 10px">
+          <button (click)="addEmail_Click()" href="" class="profile__info_box__pointed__icon_contents__addbut"><i class="fas fa-plus"></i></button>
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div style="display: flex; flex-direction: column;justify-content: center;align-items:center;">
+          <ng-container *ngFor="let item of emailInputs;index as i">
+            <div style="display: flex; justify-content: center;align-items:center">
+        <button (click)="removeEmail_Click(i)" href=""  class="profile__info_box__pointed__icon_contents__removebut"><i class="fas fa-minus"></i></button>
+        <input (input)="newInputEmail(i,$event)" type="text" class="profile__info_box__pointed__text_input" placeholder="Add your email X.com">
+            </div>
+          </ng-container>
+        </div>
+            </div>
+      <div class="profile__info_box__point">
+        <div class="profile__info_box__point__icon_contents">
+          <i class="fas fa-user-tag"></i>
+        </div>
+        <input (input)="newContact.tags"  type="text" class="profile__info_box__pointed__text_input" placeholder="Choose tag or write new">
+      </div>
+    </ng-container>
+
+
+
+
+  </div>
+
+  <ng-container *ngIf="mode==0">
+    <div class="profile__buttonsbox">
+    <button (click)="chageMode_to_EDIT()" href="" class="profile__buttonsbox__edit"><i class="fas fa-edit"></i></button>
+    <button (click)="chageMode_to_MainScreen()" href="" class="profile__buttonsbox__back">BACK</button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="mode==2">
+    <button (click)="chageMode_to_MainScreen()" href="" class="profile__buttonAdd"><i class="fas fa-plus"></i></button>
+  </ng-container>
+
+  <ng-container *ngIf="mode==1">
+    <div class="profile__buttonsbox">
+    <button (click)="chageMode_to_VIEW_and_apdate()" href="" class="profile__buttonsbox__finish">FINISH</button>
+    <button (click)="chageMode_to_VIEW()" href="" class="profile__buttonsbox__back">BACK</button>
+    </div>
+  </ng-container>
+
+
+
+
+
+
+
+
+<!--      <button href="" class="profile__buttonsbox__edit"><i class="fas fa-edit"></i></button>-->
+<!--      <button href="" class="profile__buttonsbox__back">BACK</button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+  <div class="profile__add_new">
+<!--button-->
+  </div>
+
+
+</div>
