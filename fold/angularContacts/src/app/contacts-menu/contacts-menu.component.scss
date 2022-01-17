@@ -1,0 +1,203 @@
+.menu{
+  margin-left: 240px;
+  margin-top: 50px;
+  width: calc(83.333vw);
+
+  background: #E9EDFD;
+  border-radius: 30px;
+
+  position: relative;
+  &__presentation{
+    width: inherit;
+
+    height: 70px;
+    background: #E9EDFD;
+    border-radius: 30px;
+    &__textContacts {
+    margin-top: 15px;
+    margin-left: 150px;
+    width: 650px;
+    background: #E9EDFD;
+    height: 50px;
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 40%;
+      height: 3px;
+      background-color: #222A8B;
+    }
+  }
+
+  }
+  &__contacts{
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    height: inherit;
+
+    background:#E9EDFD ;
+
+    &__block{
+      margin-right: 15px;
+      width: 250px;
+      height: 280px;
+      margin-bottom: 15px;
+
+      background: #FFFFFF;
+      border-radius: 20px;
+
+      &__tag{
+
+        width: inherit;
+        height: 62px;
+
+        background: #EEE37C;
+        border-radius: 20px 20px 0px 0px;
+
+        &__text{
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 230px;
+          height: 62px;
+          color: #222A8B;
+          font-size: 24px;
+        }
+      }
+
+      &__details{
+        margin-top: 28px;
+        height: 152px;
+
+        div{
+          overflow: hidden;
+        }
+        &__adress{
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          font-size: 15px;
+          color: #222A8B;
+
+          width: 210px;
+          height: 30px;
+          margin-left: 40px;
+
+        }
+        &__webSite{
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          font-size: 15px;
+          color: #222A8B;
+
+          width: 210px;
+          height: 30px;
+          margin-left: 40px;
+
+        }
+        &__mail{
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          font-size: 15px;
+          color: #222A8B;
+          width: 210px;
+          height: 30px;
+          margin-left: 40px;
+
+        }
+        &__phone{
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          font-size: 15px;
+          color: #222A8B;
+          width: 210px;
+          height: 30px;
+          margin-left: 40px;
+
+        }
+        i{
+          margin-right: 15px;
+        }
+        &__buttons{
+          margin-top: 24px;
+          display: flex;
+
+          justify-content: space-around;
+          align-items: center;
+          height: 30px;
+
+          &__buttonsee{
+            cursor: pointer;
+            width: 100px;
+            height:30px;
+            padding: 0;
+
+            font: inherit;
+            color: #222A8B;
+            border: 2px solid #222A8B;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background-color: white;
+
+            opacity:1;
+
+
+            transition: all 0.4s ease 0s;
+            &:hover{
+              // background-color: rgba(0, 20, 141, 0.02);
+              background-color: rgba(34, 42, 139, 0.38);
+              text-decoration: none;
+            }
+          }
+
+          &__buttondelete{
+            cursor: pointer;
+            width: 110px;
+            height:30px;
+            padding: 0;
+
+            font: inherit;
+            color: white;
+            border: 2px solid white;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background-color: red;
+
+            opacity:1;
+
+
+            transition: all 0.4s ease 0s;
+            &:hover{
+              border: 2px solid red;
+              background-color: red;
+              // background-color: rgba(0, 20, 141, 0.02);
+              background-color: rgba(255, 255, 255, 0.38);
+              text-decoration: none;
+              color: red;
+            }
+
+          }
+
+        }
+
+      }
+
+
+
+
+    }
+
+
+  }
+}

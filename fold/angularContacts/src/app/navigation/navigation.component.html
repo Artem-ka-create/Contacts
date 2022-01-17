@@ -1,0 +1,52 @@
+
+<div class="navigation">
+
+  <div class="container navigation__container">
+    <div class="navigation__box">
+      <div class="navigation__box__line">
+      </div>
+
+
+      <ng-container *ngIf="mode==0 || mode==1 || mode==3">
+      <div  class="navigation__box__addbutton">
+        <button (click)="chageMode_to_ADD()" href="" class="navigation__box__addbutton__button">Add new Contact</button>
+      </div>
+      <div class="navigation__box__contactsButton">
+        <button href="" class="navigation__box__contactsButton__button">Contacts</button>
+      </div>
+        </ng-container>
+
+
+      <ng-container *ngIf="mode==2">
+
+        <div class="navigation__box__contactsButton">
+          <button  href="" class="navigation__box__contactsButton__button">Add new Contact</button>
+        </div>
+
+        <div  class="navigation__box__addbutton">
+          <button (click)="chageMode_to_MAINSCREEN()" href="" class="navigation__box__addbutton__button">Contacts</button>
+        </div>
+
+
+      </ng-container>
+
+
+<!--      <div class="navigation__box__tags">-->
+<!--        <app-taglist></app-taglist>-->
+<!--      </div>-->
+<!--      <div class="navigation__box__tags">-->
+<!--        <app-taglist></app-taglist>-->
+<!--      </div>-->
+<!--      <div class="navigation__box__tags">-->
+<!--        <app-taglist></app-taglist>-->
+<!--      </div>-->
+<!--      <div class="navigation__box__tags">-->
+<!--        <app-taglist></app-taglist>-->
+<!--      </div>-->
+
+
+
+    </div>
+
+  </div>
+</div>
