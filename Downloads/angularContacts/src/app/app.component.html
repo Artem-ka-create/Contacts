@@ -1,8 +1,0 @@
-<div class="main">
-
-<app-navigation  (setModeChage)="onModeChange($event)" [mode]="mode" ></app-navigation>
-<app-content *ngIf="isloaded" (updateCont)="update_Contact($event)" (addnewCont)="add_Contact($event)" (removeCont)="remove_Contact($event)" (setModeChage)="onModeChange($event)" [mode]="mode" [contacts]="contacts" ></app-content>
-<!--<app-contact-profile></app-contact-profile>-->
-
-</div>
-
